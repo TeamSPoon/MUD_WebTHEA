@@ -1,8 +1,11 @@
-#!/usr/bin/swipl -L0 -G0 -T0 -q -g main -t halt -s
+#!/usr/bin/swipl -q -s
+
+:- initialization main.
 
 main :-
         current_prolog_flag(argv, Arguments),
-        append(_SytemArgs, [--|Args], Arguments), !,
+        %append(_SytemArgs, [--|Args], Arguments), !,
+	Args = Arguments,
         set_prolog_flag(verbose,normal),
         parse_args(Args,Opts),
         forall(member(rest(F),Opts),

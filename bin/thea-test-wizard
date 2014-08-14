@@ -1,4 +1,4 @@
-#!/usr/bin/swipl -L0 -G0 -A0 -T0 -q -g main -t halt -s
+#!/usr/bin/swipl -q -s
 
 :- use_module(library(test_wizard)).
 :- set_prolog_flag(log_query_file, 'Queries.pl').
@@ -9,9 +9,11 @@
 end(X):-
         make_tests(X, 'Queries.pl', current_output).
 
+:- initialization main.
+
 main :-
         current_prolog_flag(argv, Arguments),
-        append(_SytemArgs, [--|Args], Arguments), !,
+        %append(_SytemArgs, [--|Args], Arguments), !,
         maplist(owl_parse_rdf,Args),
         set_prolog_flag(verbose,normal),
         prolog.
