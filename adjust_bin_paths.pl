@@ -29,7 +29,7 @@ adjust_bin_path(Swipl, Script) :-
 	append(PCs, R, Cs),
 	debug(adjust_bin_paths, 'ok ~s', Script),
 	open(Script, write, S),
-	format(S, '~s~s', [Swipl, R]),
+	format(S, '#!~s~s', [Swipl, R]),
 	close(S),
 	process_create(path(chmod), ['+x', file(Script)], []),
 	print_message(informational, path_adjusted(Script, Swipl)).
