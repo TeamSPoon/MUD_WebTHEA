@@ -31,7 +31,8 @@ adjust_bin_path(Swipl, Script) :-
 	open(Script, write, S),
 	format(S, '~s~s', [Swipl, R]),
 	close(S),
-	process_create(path(chmod), ['+x', file(Script)], []).
+	process_create(path(chmod), ['+x', file(Script)], []),
+	print_message(informational, path_adjusted(Script, Swipl)).
 
 adjust_bin_path(_Swipl, P) :-
 	debug(adjust_bin_paths, 'no ~s', P).
@@ -39,3 +40,9 @@ adjust_bin_path(_Swipl, P) :-
 get_swipl_path(Swipl) :-
 	process_create(path(which), [swipl], [stdout(pipe(S))]),
 	read_line_to_codes(S, Swipl).
+
+:- multifile
+        prolog:message//1.
+
+prolog:message(path_adjusted(Script, Swipl)) -->
+        [ 'script ~s, path adjusted to ~s'-[Script, Swipl] ].

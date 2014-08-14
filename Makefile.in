@@ -79,6 +79,7 @@ install:	$(LIBPL) $(LIBPLRULES)
 		mkdir -p $(DESTDIR)$(LIBDIR)/rules
 		$(INSTALL_DATA) $(LIBPLRULES) $(DESTDIR)$(LIBDIR)/rules
 		$(PL) -f none -g make -t halt
+		$(PL) -g adjust_bin_paths -t halt adjust_bin_paths.pl
 
 ln-install:	$(LIBPL) $(LIBPLRULES)
 		mkdir -p $(DESTDIR)$(LIBDIR)
