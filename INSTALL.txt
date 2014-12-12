@@ -1,3 +1,12 @@
+This package provides a set of Prolog Modules to parse and manipulating 
+OWL ontologies.
+
+Prerequisite
+* SWI-Prolog 
+
+You can bypass installation and use the 'thea' script directly. 
+See README for details.
+
 Basic Installation
 ==================
 

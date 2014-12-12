@@ -6,7 +6,7 @@ uses of reasoning are:
 
  * To check for inconsistencies in an ontology
  * To classify the ontology (i.e. find all implied subClassOf/2 relationships)
- * To classify instances using the ontology (i.e. find all implied classAssertuon/2 relationships)
+ * To classify instances using the ontology (i.e. find all implied classAssertion/2 relationships)
 
 Thea2 offers a number of different options for reasoning. These can be
 broken down into the following categories:
